@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eonyong Han — Curriculum Vitae</title>
+  <style>
+    :root { --accent:#1A3A5A; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+           color:#1c1c1c; background:#f4f6f8; }
+    header { background:var(--accent); color:#fff; padding:28px 20px; text-align:center; }
+    header h1 { margin:0; font-size:1.9rem; letter-spacing:.5px; }
+    header p  { margin:6px 0 0; opacity:.9; }
+    .links { text-align:center; padding:14px; background:#fff; border-bottom:1px solid #e2e6ea; }
+    .links a { color:var(--accent); text-decoration:none; margin:0 10px; font-weight:600; }
+    .links a:hover { text-decoration:underline; }
+    .viewer { max-width:1000px; margin:22px auto; padding:0 12px; }
+    .viewer object, .viewer iframe { width:100%; height:82vh; border:1px solid #d8dde2; border-radius:6px; background:#fff; }
+    footer { text-align:center; color:#7a828a; font-size:.85rem; padding:18px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Eonyong Han</h1>
+    <p>Ph.D. Candidate · Bioinformatics &amp; Computational Biology · Kyungpook National University</p>
+  </header>
+  <nav class="links">
+    <a href="cv.pdf" download>⬇ Download PDF</a>
+    <a href="https://scholar.google.com/citations?user=NMRL9agAAAAJ">Google Scholar</a>
+    <a href="https://github.com/EONYONG-HAN">GitHub</a>
+    <a href="https://orcid.org/0000-0002-2426-4962">ORCID</a>
+    <a href="mailto:djssoddl@knu.ac.kr">Email</a>
+  </nav>
+  <div class="viewer">
+    <object data="cv.pdf" type="application/pdf">
+      <iframe src="cv.pdf" title="CV PDF"></iframe>
+      <p>Your browser can't display the embedded PDF. <a href="cv.pdf">Download it here.</a></p>
+    </object>
+  </div>
+  <footer>Built from LaTeX and published automatically via GitHub Actions.</footer>
+</body>
+</html>
