@@ -1,0 +1,155 @@
+%==============================================================
+%  Curriculum Vitae -- Eonyong Han
+%  Compile:  latexmk -pdf cv.tex   (or)   pdflatex cv.tex
+%  Self-contained: uses only standard LaTeX packages.
+%==============================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{ifthen}
+
+\definecolor{accent}{HTML}{1A3A5A}
+\hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent, citecolor=accent}
+
+% ---- Section styling ---------------------------------------
+\titleformat{\section}
+  {\Large\bfseries\color{accent}}{}{0pt}{}[\vspace{-4pt}\color{accent}\hrule\vspace{2pt}]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% ---- Helper commands ---------------------------------------
+% Entry with a right-aligned date
+\newcommand{\entry}[2]{%
+  \noindent\textbf{#1}\hfill{\color{accent}#2}\par}
+\newcommand{\subentry}[1]{\noindent\textit{#1}\par}
+
+% Highlight the CV owner's name wherever it appears in author lists
+\newcommand{\me}[1]{\textbf{#1}}
+
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, topsep=3pt}
+
+\newcommand{\namefont}{\Huge\bfseries\color{accent}}
+
+%==============================================================
+\begin{document}
+\pagestyle{empty}
+
+% ---------------- HEADER ------------------------------------
+\begin{center}
+  {\namefont Eonyong Han}\\[4pt]
+  {\large Ph.D.\ Candidate, Bioinformatics \& Computational Biology}\\[2pt]
+  School of Computer Science and Engineering, Kyungpook National University\\
+  Buk-gu, Daegu 41566, Republic of Korea\\[6pt]
+  % --- Contact line: EDIT placeholders below ---
+  \href{mailto:djssoddl@knu.ac.kr}{djssoddl@knu.ac.kr}
+  \quad\textbullet\quad
+  +82-XX-XXXX-XXXX
+  \quad\textbullet\quad
+  \href{https://scholar.google.com/citations?user=NMRL9agAAAAJ}{Google Scholar}
+  \quad\textbullet\quad
+  \href{https://github.com/YOUR-GITHUB}{GitHub}
+  \quad\textbullet\quad
+  \href{https://orcid.org/0000-0000-0000-0000}{ORCID}
+\end{center}
+\vspace{4pt}
+
+% ---------------- RESEARCH INTERESTS ------------------------
+\section{Research Interests}
+Multi-omics data integration; computational cancer genomics; machine learning for
+biomedical data; transcriptomics and pathway analysis; immune-response modeling in
+infectious disease (COVID-19). Emphasis on translating high-throughput sequencing
+data into clinically interpretable insights.
+
+% ---------------- EDUCATION ---------------------------------
+\section{Education}
+\entry{Ph.D.\ in Computer Science and Engineering}{20XX -- 2026 (expected)}
+\subentry{Kyungpook National University, Daegu, Republic of Korea}
+\begin{itemize}
+  \item Dissertation: \emph{[Working title -- e.g., ``Multi-omics integration methods for cancer subtyping and disease-progression modeling'']}
+  \item Advisor: Prof.\ Inuk Jung
+\end{itemize}
+\vspace{4pt}
+\entry{[B.S. / M.S.]\ in [Field]}{20XX -- 20XX}
+\subentry{[University], [City], Republic of Korea}
+
+% ---------------- PUBLICATIONS ------------------------------
+\section{Publications}
+\noindent\footnotesize$^{\dagger}$Co-first author. Author's name in \textbf{bold}.
+Full metadata in \texttt{references.bib}.\normalsize
+\vspace{4pt}
+
+\subentry{Peer-reviewed journal articles}
+\begin{enumerate}[leftmargin=1.8em, itemsep=6pt, label=\arabic*.]
+  \item \me{Han, E.}, Youn, S., Kwon, K.T., Kim, S.C., Jo, H.-Y., \& Jung, I. (2024).
+        Disease progression associated cytokines in COVID-19 patients with deteriorating
+        and recovering health conditions. \emph{Scientific Reports}, 14, 24712.
+        \href{https://doi.org/10.1038/s41598-024-75924-x}{doi:10.1038/s41598-024-75924-x}
+
+  \item \me{Han, E.}$^{\dagger}$, Kwon, H.$^{\dagger}$, \& Jung, I. (2025).
+        A review on multi-omics integration for aiding study design of large scale TCGA
+        cancer datasets. \emph{BMC Genomics}, 26, 769.
+        \href{https://doi.org/10.1186/s12864-025-11925-y}{doi:10.1186/s12864-025-11925-y}
+
+  \item Youn, S., Jeong, D., Kwon, H., \me{Han, E.}, Kim, S., \& Jung, I. (2025).
+        Identification of severity related mutation hotspots in SARS-CoV-2 using a
+        density-based clustering approach. \emph{BioData Mining}, 18, 61.
+        \href{https://doi.org/10.1186/s13040-025-00476-3}{doi:10.1186/s13040-025-00476-3}
+
+  \item Shin, S., \me{Han, E.}, Seong, H., Kim, Y.I., Jung, I., \& Jung, W. (2025).
+        De novo transcriptome assembly and gene expression analysis of Cnidium officinale
+        under high-temperature conditions. \emph{BMC Genomics}, 26, 907.
+        \href{https://doi.org/10.1186/s12864-025-12051-5}{doi:10.1186/s12864-025-12051-5}
+
+  \item Jeon, J., \me{Han, E.Y.}, \& Jung, I. (2023).
+        MOPA: An integrative multi-omics pathway analysis method for measuring omics
+        activity. \emph{PLOS ONE}, 18(3), e0278272.
+        \href{https://doi.org/10.1371/journal.pone.0278272}{doi:10.1371/journal.pone.0278272}
+\end{enumerate}
+
+% ---------------- RESEARCH EXPERIENCE -----------------------
+\section{Research Experience}
+\entry{Graduate Researcher --- Computational Biology \& Bioinformatics Lab}{20XX -- Present}
+\subentry{Kyungpook National University, Daegu}
+\begin{itemize}
+  \item Developed multi-omics integration and pathway-analysis methods for cancer
+        subtyping using TCGA datasets (gene expression, miRNA, methylation).
+  \item Built machine-learning models (random forest, SHAP-based interpretation) to
+        characterize COVID-19 immune response from EHR and cytokine-profile cohorts.
+  \item Applied density-based clustering to identify SARS-CoV-2 mutation hotspots
+        associated with patient severity from large-scale genomic databases (GISAID).
+\end{itemize}
+
+% ---------------- SKILLS ------------------------------------
+\section{Technical Skills}
+\begin{itemize}
+  \item \textbf{Programming:} [Python, R], [Bash]; \emph{add others you use}
+  \item \textbf{Bioinformatics:} RNA-seq / DEG analysis, de novo transcriptome assembly,
+        pathway \& GO/KEGG enrichment, multi-omics integration, single-cell RNA-seq
+  \item \textbf{Machine learning:} clustering, random forests, SHAP / explainable AI,
+        feature selection, benchmarking
+  \item \textbf{Tools:} Git, [Linux/HPC], [add frameworks]
+\end{itemize}
+
+% ---------------- PRESENTATIONS / AWARDS / SERVICE ----------
+\section{Presentations, Awards \& Service}
+\begin{itemize}
+  \item \emph{[Add conference talks / posters, e.g., name, venue, year.]}
+  \item \emph{[Add scholarships, fellowships, or awards.]}
+  \item \emph{[Add peer-review or academic service, if any.]}
+\end{itemize}
+
+% ---------------- REFERENCES --------------------------------
+\section{References}
+\entry{Prof.\ Inuk Jung}{Ph.D.\ Advisor}
+\subentry{School of Computer Science and Engineering, Kyungpook National University}
+\href{mailto:inukjung@knu.ac.kr}{inukjung@knu.ac.kr}
+\vspace{4pt}
+
+\noindent\emph{Additional references available upon request.}
+
+\end{document}
