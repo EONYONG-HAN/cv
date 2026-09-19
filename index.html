@@ -1,43 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Eonyong Han — Curriculum Vitae</title>
-  <style>
-    :root { --accent:#1A3A5A; }
-    * { box-sizing:border-box; }
-    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-           color:#1c1c1c; background:#f4f6f8; }
-    header { background:var(--accent); color:#fff; padding:28px 20px; text-align:center; }
-    header h1 { margin:0; font-size:1.9rem; letter-spacing:.5px; }
-    header p  { margin:6px 0 0; opacity:.9; }
-    .links { text-align:center; padding:14px; background:#fff; border-bottom:1px solid #e2e6ea; }
-    .links a { color:var(--accent); text-decoration:none; margin:0 10px; font-weight:600; }
-    .links a:hover { text-decoration:underline; }
-    .viewer { max-width:1000px; margin:22px auto; padding:0 12px; }
-    .viewer object, .viewer iframe { width:100%; height:82vh; border:1px solid #d8dde2; border-radius:6px; background:#fff; }
-    footer { text-align:center; color:#7a828a; font-size:.85rem; padding:18px; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eonyong Han — Bioinformatics &amp; Computational Biology</title>
+<meta name="description" content="Eonyong Han — Ph.D. candidate in Computer Science and Engineering at Kyungpook National University. Data selection and partitioning for transcriptome reconstruction, multi-omics integration, and immune-response interpretation.">
+<meta name="author" content="Eonyong Han">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fbfbf9; --surface:#ffffff; --text:#1a1c1e; --muted:#5d6570; --faint:#8b939e;
+  --line:#e4e4df; --accent:#1c5d54; --accent-soft:#e8f0ee; --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.04);
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#101214; --surface:#171a1d; --text:#e8eaec; --muted:#9aa3ad; --faint:#6f7883;
+    --line:#262b30; --accent:#68c2b0; --accent-soft:#16302c; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.25);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:830px; margin:0 auto; padding:0 28px}
+a{color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .15s}
+a:hover{border-bottom-color:var(--accent)}
+
+/* ---------- nav ---------- */
+nav{
+  position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(12px); border-bottom:1px solid var(--line);
+}
+nav .wrap{display:flex; align-items:center; justify-content:space-between; gap:20px; height:56px}
+nav .brand{flex-shrink:0; font-weight:600; font-size:15px; letter-spacing:-.01em; color:var(--text); border:0}
+nav ul{min-width:0; display:flex; gap:22px; list-style:none; margin:0; padding:0; overflow-x:auto; scrollbar-width:none}
+nav ul::-webkit-scrollbar{display:none}
+nav ul a{font-size:14px; color:var(--muted); white-space:nowrap; border:0}
+nav ul a:hover{color:var(--accent)}
+
+/* ---------- header ---------- */
+header{padding:64px 0 44px}
+header h1{
+  font-family:Newsreader,Georgia,serif; font-weight:600; font-size:clamp(2.1rem,5.2vw,3rem);
+  line-height:1.1; letter-spacing:-.02em; margin:0 0 6px;
+}
+header .hanja{font-size:.5em; color:var(--faint); font-weight:400; letter-spacing:0}
+header .role{font-size:1.02rem; color:var(--muted); margin:0 0 4px}
+header .affil{font-size:.95rem; color:var(--faint); margin:0 0 22px}
+.links{display:flex; flex-wrap:wrap; gap:8px}
+.links a{
+  display:inline-flex; align-items:center; gap:6px; font-size:13.5px; font-weight:500;
+  padding:6px 13px; border-radius:999px; background:var(--surface); border:1px solid var(--line);
+  color:var(--muted); box-shadow:var(--shadow);
+}
+.links a:hover{color:var(--accent); border-color:var(--accent)}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:76px; padding:30px 0; border-top:1px solid var(--line)}
+h2{
+  font-size:.76rem; font-weight:600; text-transform:uppercase; letter-spacing:.11em;
+  color:var(--accent); margin:0 0 20px;
+}
+p{margin:0 0 14px}
+.lead{font-size:1.02rem; color:var(--muted)}
+.lead strong{color:var(--text); font-weight:600}
+
+/* ---------- entries ---------- */
+.entry{display:grid; grid-template-columns:1fr auto; gap:4px 24px; margin-bottom:20px}
+.entry:last-child{margin-bottom:0}
+.entry .t{font-weight:600; font-size:.98rem}
+.entry .d{font-size:.85rem; color:var(--faint); white-space:nowrap; text-align:right; padding-top:2px}
+.entry .s{grid-column:1/-1; font-size:.9rem; color:var(--muted); margin:0}
+@media(max-width:560px){
+  .entry{grid-template-columns:1fr}
+  .entry .d{text-align:left; padding-top:0}
+}
+
+/* ---------- publications ---------- */
+.subhead{
+  font-size:.82rem; font-weight:600; color:var(--muted); margin:0 0 12px;
+  letter-spacing:.01em;
+}
+.subhead:not(:first-of-type){margin-top:30px}
+.review{
+  border-left:3px solid var(--accent); background:var(--accent-soft);
+  border-radius:0 8px 8px 0; padding:14px 18px; margin-bottom:6px;
+}
+ol.pubs{list-style:none; counter-reset:p; margin:0; padding:0}
+ol.pubs li{
+  counter-increment:p; position:relative; padding:0 0 18px 40px; margin-bottom:18px;
+  border-bottom:1px solid var(--line);
+}
+ol.pubs li:last-child{border-bottom:0; margin-bottom:0; padding-bottom:0}
+ol.pubs li::before{
+  content:counter(p); position:absolute; left:0; top:1px;
+  width:26px; height:26px; border-radius:50%; background:var(--accent-soft); color:var(--accent);
+  font-size:12px; font-weight:600; display:grid; place-items:center;
+}
+.pub-title{font-weight:600; font-size:.99rem; display:block; margin-bottom:5px; line-height:1.45}
+.authors{font-size:.88rem; color:var(--muted); margin:0 0 5px}
+.authors .me{color:var(--text); font-weight:600}
+.venue{font-size:.86rem; color:var(--faint); margin:0}
+.venue em{font-style:italic; color:var(--muted)}
+.tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:9px}
+.tag{
+  font-size:11px; font-weight:600; letter-spacing:.03em; text-transform:uppercase;
+  padding:3px 9px; border-radius:5px; background:var(--accent-soft); color:var(--accent);
+}
+.tag.grey{background:var(--line); color:var(--muted)}
+.tag.open{background:transparent; border:1px dashed var(--faint); color:var(--faint)}
+
+/* ---------- projects table ---------- */
+table.proj{width:100%; border-collapse:collapse; font-size:.9rem}
+table.proj th{
+  text-align:left; font-size:.72rem; font-weight:600; text-transform:uppercase;
+  letter-spacing:.07em; color:var(--faint); padding:0 12px 8px 0; border-bottom:1px solid var(--line);
+}
+table.proj th:last-child,table.proj td:last-child{text-align:right; white-space:nowrap; padding-right:0}
+table.proj td{padding:11px 12px 11px 0; border-bottom:1px solid var(--line); vertical-align:top}
+table.proj tr:last-child td{border-bottom:0}
+table.proj td b{font-weight:600; display:block; line-height:1.4}
+table.proj .pi{display:block; font-size:.8rem; color:var(--faint); margin-top:2px}
+table.proj td:nth-child(2){color:var(--muted); white-space:nowrap; font-size:.85rem}
+table.proj td:nth-child(3){color:var(--faint); font-size:.85rem; font-variant-numeric:tabular-nums}
+@media(max-width:600px){
+  table.proj,table.proj tbody,table.proj tr,table.proj td{display:block; width:100%}
+  table.proj thead{display:none}
+  table.proj td{border:0; padding:2px 0}
+  table.proj tr{border-bottom:1px solid var(--line); padding:12px 0}
+  table.proj td:last-child,table.proj td:nth-child(2){text-align:left; display:inline-block; width:auto; margin-right:10px}
+}
+
+/* ---------- skills ---------- */
+.skill{display:grid; grid-template-columns:150px 1fr; gap:6px 20px; padding:11px 0; border-bottom:1px solid var(--line)}
+.skill:last-child{border-bottom:0}
+.skill dt{font-size:.83rem; font-weight:600; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; padding-top:3px}
+.skill dd{margin:0; font-size:.93rem}
+@media(max-width:560px){.skill{grid-template-columns:1fr}}
+dl{margin:0}
+
+footer{
+  padding:28px 0 48px; border-top:1px solid var(--line); margin-top:10px;
+  font-size:.82rem; color:var(--faint); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+}
+</style>
 </head>
 <body>
-  <header>
-    <h1>Eonyong Han</h1>
-    <p>Ph.D. Candidate · Bioinformatics &amp; Computational Biology · Kyungpook National University</p>
-  </header>
-  <nav class="links">
-    <a href="cv.pdf" download>⬇ Download PDF</a>
-    <a href="https://scholar.google.com/citations?user=NMRL9agAAAAJ">Google Scholar</a>
-    <a href="https://github.com/EONYONG-HAN">GitHub</a>
-    <a href="https://orcid.org/0000-0002-2426-4962">ORCID</a>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top">Eonyong Han</a>
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div></nav>
+
+<div class="wrap" id="top">
+
+<header>
+  <h1>Eonyong Han <span class="hanja">한언용</span></h1>
+  <p class="role">Ph.D. Candidate — Bioinformatics &amp; Computational Biology</p>
+  <p class="affil">School of Computer Science and Engineering, Kyungpook National University · Daegu, Republic of Korea</p>
+  <div class="links">
     <a href="mailto:djssoddl@knu.ac.kr">Email</a>
-  </nav>
-  <div class="viewer">
-    <object data="cv.pdf" type="application/pdf">
-      <iframe src="cv.pdf" title="CV PDF"></iframe>
-      <p>Your browser can't display the embedded PDF. <a href="cv.pdf">Download it here.</a></p>
-    </object>
+    <a href="https://scholar.google.com/citations?user=NMRL9agAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+    <a href="https://github.com/EONYONG-HAN" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://orcid.org/0000-0002-2426-4962" target="_blank" rel="noopener">ORCID</a>
+    <a href="cv.pdf">CV (PDF)</a>
   </div>
-  <footer>Built from LaTeX and published automatically via GitHub Actions.</footer>
+</header>
+
+<section id="research">
+  <h2>Research</h2>
+  <p class="lead">
+    I develop computational methods for <strong>transcriptome reconstruction, multi-omics
+    integration, and immune-response interpretation</strong>. My dissertation connects
+    computational performance with biological interpretation by examining how
+    <strong>data selection and partitioning shape the evidence available for inference</strong>.
+  </p>
+  <p class="lead">
+    My work includes semantic read partitioning for parallel de novo assembly (Deep-SemP),
+    transcriptome reconstruction in a non-model plant, benchmarking of multi-omics study
+    designs, and phase-specific analysis of immune response. Across these studies, I examine
+    what performance metrics capture, what biological information is retained, and where
+    interpretation remains limited by the data and analysis design.
+  </p>
+  <p class="lead">
+    My background combines computer science with experimental protein research. Before
+    focusing on bioinformatics, I worked on recombinant protein expression, purification,
+    and crystallization. This experience informs my interest in connecting machine-learning
+    representations with biological questions.
+  </p>
+  <div class="tags" style="margin-top:16px">
+    <span class="tag">De novo transcriptome assembly</span>
+    <span class="tag">Protein language models</span>
+    <span class="tag">Multi-omics integration</span>
+    <span class="tag">Pathway &amp; network analysis</span>
+    <span class="tag">Explainable ML</span>
+    <span class="tag">Cancer genomics</span>
+  </div>
+</section>
+
+<section id="publications">
+  <h2>Publications</h2>
+
+  <h3 class="subhead">Under review</h3>
+  <div class="review">
+    <span class="pub-title">A deep semantic read-partitioning framework for parallel reference-free de novo transcriptome assembly in <em>Caenorhabditis</em></span>
+    <p class="authors"><span class="me">Eonyong Han</span><sup>†</sup>, Jiyu Park<sup>†</sup>, Yongtae Kim, Inuk Jung</p>
+    <p class="venue">Under review at <em>Bioinformatics</em> (2026) · code: <a href="https://github.com/cobi-git/Deep-SemP" target="_blank" rel="noopener">github.com/cobi-git/Deep-SemP</a></p>
+    <div class="tags">
+      <span class="tag">Deep-SemP</span>
+      <span class="tag">Co-first author</span>
+      <span class="tag grey">Protein language models</span>
+      <span class="tag grey">Knowledge distillation</span>
+      <span class="tag grey">De novo assembly</span>
+      <span class="tag grey">GPU parallelism</span>
+    </div>
+  </div>
+
+  <h3 class="subhead">Peer-reviewed journal articles</h3>
+  <ol class="pubs">
+
+    <li>
+      <span class="pub-title">De novo transcriptome assembly and gene expression analysis of <em>Cnidium officinale</em> under high-temperature conditions</span>
+      <p class="authors">Sohee Shin<sup>†</sup>, <span class="me">Eonyong Han</span><sup>†</sup>, Hyeju Seong, Yong Il Kim, Inuk Jung, Woosuk Jung</p>
+      <p class="venue"><em>BMC Genomics</em>, 26, 907 (2025) · <a href="https://doi.org/10.1186/s12864-025-12051-5" target="_blank" rel="noopener">10.1186/s12864-025-12051-5</a></p>
+      <div class="tags"><span class="tag">Co-first author</span><span class="tag grey">De novo assembly</span><span class="tag grey">DEG &amp; miRNA</span><span class="tag grey">Heat stress</span></div>
+    </li>
+
+    <li>
+      <span class="pub-title">A review on multi-omics integration for aiding study design of large scale TCGA cancer datasets</span>
+      <p class="authors"><span class="me">Eonyong Han</span><sup>†</sup>, Hwijun Kwon<sup>†</sup>, Inuk Jung</p>
+      <p class="venue"><em>BMC Genomics</em>, 26, 769 (2025) · <a href="https://doi.org/10.1186/s12864-025-11925-y" target="_blank" rel="noopener">10.1186/s12864-025-11925-y</a></p>
+      <div class="tags"><span class="tag">Co-first author</span><span class="tag grey">Multi-omics study design</span><span class="tag grey">Benchmarking</span></div>
+    </li>
+
+    <li>
+      <span class="pub-title">Identification of severity related mutation hotspots in SARS-CoV-2 using a density-based clustering approach</span>
+      <p class="authors">Sohyun Youn<sup>†</sup>, Dabin Jeong<sup>†</sup>, Hwijun Kwon<sup>†</sup>, <span class="me">Eonyong Han</span>, Sun Kim, Inuk Jung</p>
+      <p class="venue"><em>BioData Mining</em>, 18, 61 (2025) · <a href="https://doi.org/10.1186/s13040-025-00476-3" target="_blank" rel="noopener">10.1186/s13040-025-00476-3</a></p>
+      <div class="tags"><span class="tag grey">Density-based clustering</span><span class="tag grey">GISAID</span><span class="tag grey">Network propagation</span></div>
+    </li>
+
+    <li>
+      <span class="pub-title">Disease progression associated cytokines in COVID-19 patients with deteriorating and recovering health conditions</span>
+      <p class="authors"><span class="me">Eonyong Han</span>, Sohyun Youn, Ki Tae Kwon, Sang Cheol Kim, Hye-Yeong Jo, Inuk Jung</p>
+      <p class="venue"><em>Scientific Reports</em>, 14, 24712 (2024) · <a href="https://doi.org/10.1038/s41598-024-75924-x" target="_blank" rel="noopener">10.1038/s41598-024-75924-x</a></p>
+      <div class="tags"><span class="tag">First author</span><span class="tag grey">Random forest + SHAP</span><span class="tag grey">Longitudinal EHR</span><span class="tag grey">Cytokine profiling</span></div>
+    </li>
+
+    <li>
+      <span class="pub-title">MOPA: An integrative multi-omics pathway analysis method for measuring omics activity</span>
+      <p class="authors">Jaemin Jeon, <span class="me">Eonyong Han</span>, Inuk Jung</p>
+      <p class="venue"><em>PLOS ONE</em>, 18(3), e0278272 (2023) · <a href="https://doi.org/10.1371/journal.pone.0278272" target="_blank" rel="noopener">10.1371/journal.pone.0278272</a></p>
+      <div class="tags"><span class="tag grey">Pathway enrichment</span><span class="tag grey">Multi-omics scoring</span><span class="tag grey">TCGA</span></div>
+    </li>
+
+  </ol>
+  <p style="font-size:.82rem;color:var(--faint);margin-top:20px">
+    <sup>†</sup> These authors contributed equally.
+  </p>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+
+  <div class="entry">
+    <div class="t">Ph.D., Computer Science and Engineering</div>
+    <div class="d">Sep 2022 – Feb 2027 (expected)</div>
+    <p class="s">Kyungpook National University, Daegu · Advisor: Prof. Inuk Jung</p>
+    <p class="s">Dissertation: <em>Data Selection and Partitioning for Transcriptome Reconstruction, Multi-omics Integration, and Immune-response Interpretation</em></p>
+  </div>
+
+  <div class="entry">
+    <div class="t">M.S., Computer Science and Engineering</div>
+    <div class="d">2020 – 2022</div>
+    <p class="s">Kyungpook National University, Daegu · Thesis: <em>A Study on Network Comparison with Invariant Topology Size Using Colon Cancer Data</em></p>
+  </div>
+
+  <div class="entry">
+    <div class="t">B.S., Biotechnology</div>
+    <div class="d">2010 – 2019</div>
+    <p class="s">School of Life Science and Biotechnology, Kyungpook National University, Daegu</p>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Research Experience</h2>
+
+  <div class="entry">
+    <div class="t">Graduate Researcher — Computational Biology &amp; Bioinformatics Lab</div>
+    <div class="d">2020 – Present</div>
+    <p class="s">
+      Kyungpook National University, Daegu · Advisor: Prof. Inuk Jung. Developed Deep-SemP,
+      a semantic read-partitioning framework for parallel transcriptome assembly, using
+      protein-derived representations and knowledge distillation to a nucleotide model.
+      Conducted transcriptome reconstruction and expression analysis in a non-model plant;
+      benchmarked ten clustering methods for multi-omics study design; developed pathway
+      analyses for TCGA data and random-forest/SHAP analyses of COVID-19 immune response.
+      Contributed to density-based analysis of SARS-CoV-2 mutation hotspots.
+    </p>
+  </div>
+
+  <div class="entry">
+    <div class="t">Research Intern, then Graduate Researcher — Structural Biology</div>
+    <div class="d">Dec 2018 – Aug 2020</div>
+    <p class="s">
+      School of Life Science and Biotechnology, Kyungpook National University. Laboratory of
+      Prof. Eric Di Luccio. Recombinant protein production in <em>Escherichia coli</em> —
+      vector transformation and induced expression, target verification by SDS-PAGE and
+      western blotting, chromatographic purification, and crystallization by vapour diffusion
+      for structural characterization. Contributed to an NRF-funded study of the Set7
+      methyltransferase in <em>Schizosaccharomyces pombe</em> gametogenesis and its
+      association with human infertility.
+    </p>
+  </div>
+
+  <h2 style="margin-top:34px">Fellowship</h2>
+  <div class="entry">
+    <div class="t">BK21 FOUR — Intelligence-Convergence Software Education &amp; Research Group</div>
+    <div class="d">Sep 2020 – Aug 2026</div>
+    <p class="s">National Research Foundation of Korea · Participating graduate student</p>
+  </div>
+
+  <h2 style="margin-top:34px">Funded Research Projects</h2>
+  <p style="font-size:.9rem;color:var(--muted);margin-bottom:18px">
+    Selected project participation as a student researcher or research assistant; principal investigators are identified below.
+  </p>
+  <table class="proj">
+    <thead><tr><th>Project</th><th>Funder</th><th>Period</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>Petascale in-storage computing for accelerating genomic DNA sequence analysis</b><span class="pi">Basic Research Laboratory · PI Yongtae Kim</span></td>
+        <td>NRF</td><td>2024.09 – 2026.06</td>
+      </tr>
+      <tr>
+        <td><b>Quantum advantage for quantum-computing-based genomic DNA alignment</b><span class="pi">PI Yongtae Kim</span></td>
+        <td>NRF</td><td>2025.06 – 2025.12</td>
+      </tr>
+      <tr>
+        <td><b>Time-series multi-omics integrative analysis and AI applications</b><span class="pi">PI Inuk Jung</span></td>
+        <td>KDCA</td><td>2024.04 – 2025.12</td>
+      </tr>
+      <tr>
+        <td><b>Multi-omics integrative analysis and prognosis prediction modelling for COVID-19 patients</b><span class="pi">PI Inuk Jung</span></td>
+        <td>KDCA</td><td>2022.03 – 2023.12</td>
+      </tr>
+      <tr>
+        <td><b>Development of an AI-based infection severity classification system</b><span class="pi">PI Inuk Jung</span></td>
+        <td>KHIDI</td><td>2022.08 – 2024.12</td>
+      </tr>
+      <tr>
+        <td><b>Large-scale multi-omics data integration methods and open platform</b><span class="pi">PI Inuk Jung</span></td>
+        <td>NRF</td><td>2021.03 – 2021.12</td>
+      </tr>
+      <tr>
+        <td><b>Machine learning methods for single-cell time-series transcriptome data</b><span class="pi">PI Inuk Jung</span></td>
+        <td>NRF</td><td>2021.03 – 2022.05</td>
+      </tr>
+      <tr>
+        <td><b>AI diagnostic technology for embedded imaging medical devices</b><span class="pi">PI Jaeil Kim</span></td>
+        <td>KEIT</td><td>2022.05 – 2024.12</td>
+      </tr>
+      <tr>
+        <td><b>High-performance spatiotemporal IoT data management and intelligence engine</b><span class="pi">PI Youngkyoon Seo</span></td>
+        <td>NRF</td><td>2024.03 – 2025.05</td>
+      </tr>
+      <tr>
+        <td><b>Usage-pattern classification for personalized air-conditioner operation</b><span class="pi">Industry collaboration · PI Inuk Jung</span></td>
+        <td>LG Electronics</td><td>2022.05 – 2023.04</td>
+      </tr>
+      <tr>
+        <td><b>Role of Set7 in <em>Schizosaccharomyces pombe</em> gametogenesis and its association with human infertility</b><span class="pi">PI Eric Di Luccio</span></td>
+        <td>NRF</td><td>2019.09 – 2020.08</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="skills">
+  <h2>Technical Skills</h2>
+  <dl>
+    <div class="skill"><dt>Languages</dt><dd>Python, R, Bash</dd></div>
+    <div class="skill"><dt>Genomics</dt><dd>RNA-seq &amp; DEG analysis, de novo transcriptome assembly, single-cell RNA-seq, variant/mutation analysis, miRNA–target analysis</dd></div>
+    <div class="skill"><dt>Pathway &amp; network</dt><dd>KEGG / GO enrichment, gene co-expression networks (WGCNA), pathway-unit correlation networks, graph edit distance, network propagation</dd></div>
+    <div class="skill"><dt>Machine learning</dt><dd>Random forests, SHAP / explainable AI, density-based and consensus clustering, feature selection, benchmarking design</dd></div>
+    <div class="skill"><dt>Deep learning</dt><dd>Protein language models (ESM-2), genome foundation models (DNABERT-2), knowledge distillation, transformer fine-tuning, multi-GPU inference (PyTorch)</dd></div>
+    <div class="skill"><dt>Assembly &amp; HPC</dt><dd>Trinity, BUSCO, minimap2, StringTie, CD-HIT-EST, CAP3, Jellyfish; complexity-aware CPU scheduling and multi-server parallelization</dd></div>
+    <div class="skill"><dt>Data</dt><dd>TCGA, GISAID, NCBI SRA, Ensembl, UniProt, KEGG, clinical EHR and cytokine-profile cohorts</dd></div>
+    <div class="skill"><dt>Wet lab</dt><dd>Recombinant protein expression in <em>E. coli</em>, SDS-PAGE, western blotting, chromatographic purification, protein crystallization by vapour diffusion</dd></div>
+    <div class="skill"><dt>Tools</dt><dd>Git, LaTeX, Linux/HPC</dd></div>
+  </dl>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="entry">
+    <div class="t"><a href="mailto:djssoddl@knu.ac.kr">djssoddl@knu.ac.kr</a></div>
+    <div class="d">Daegu 41566, Republic of Korea</div>
+    <p class="s">School of Computer Science and Engineering, Kyungpook National University, Buk-gu, Daegu</p>
+  </div>
+  <p style="font-size:.9rem;color:var(--muted);margin-top:18px">
+    Advisor: Prof. Inuk Jung — <a href="mailto:inukjung@knu.ac.kr">inukjung@knu.ac.kr</a>
+  </p>
+</section>
+
+<footer>
+  <span>© 2026 Eonyong Han</span>
+  <span>Last updated 19 September 2026</span>
+</footer>
+
+</div>
 </body>
 </html>

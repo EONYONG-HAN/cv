@@ -1,39 +1,30 @@
-# Curriculum Vitae — Eonyong Han
+# Academic CV — Eonyong Han
 
-LaTeX source for my academic CV, version-controlled with git and auto-published online.
+Academic homepage and downloadable CV for Eonyong Han, Ph.D. candidate in Computer
+Science and Engineering at Kyungpook National University.
 
-**Live CV:** https://eonyong-han.github.io/cv/  *(after the one-time setup below)*
+**Website:** [eonyong-han.github.io/cv](https://eonyong-han.github.io/cv/)
 
 ## Files
-- `cv.tex` — CV source (self-contained; only standard LaTeX packages).
-- `references.bib` — machine-readable publication list (BibTeX).
-- `index.html` — web landing page that embeds the PDF.
-- `.github/workflows/build-cv.yml` — CI that compiles the PDF and deploys to GitHub Pages.
-- `Makefile`, `.gitignore` — build helper / ignore rules.
 
-## Build locally
-```bash
-make            # or: latexmk -pdf cv.tex
-```
+- `index.html`: responsive academic homepage with research, publications, education,
+  research experience, funded project participation, and skills.
+- `cv.tex`: editable LaTeX CV source.
+- `cv.pdf`: compiled CV, also available from the website.
+- `references.bib`: publication metadata, including a separate unpublished entry for
+  Deep-SemP, under review at *Bioinformatics*.
+- `.github/workflows/build-cv.yml`: compiles the CV and deploys to GitHub Pages.
 
-## Put it online (one-time setup)
-1. Create an empty repo on GitHub named **cv** (github.com/new).
-2. Push this repo:
-   ```bash
-   git branch -M main
-   git remote add origin https://github.com/EONYONG-HAN/cv.git
-   git push -u origin main
-   ```
-3. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-4. Done. Every push to `main` now recompiles `cv.tex` and publishes to
-   **https://eonyong-han.github.io/cv/** automatically.
+## Build and update
 
-> Tip: to host at the root URL **https://eonyong-han.github.io/**, name the repo
-> `EONYONG-HAN.github.io` instead of `cv` (everything else is identical).
+Build with `latexmk -pdf cv.tex` (or `make`). Tectonic is also supported:
+`tectonic cv.tex`.
 
-## Update workflow
-```bash
-# edit cv.tex ...
-git add -A && git commit -m "Update CV" && git push
-# GitHub Actions rebuilds the PDF and updates the live site in ~1–2 min
-```
+Keep the website, LaTeX CV, and BibTeX metadata consistent when updating publications
+or academic status. Rebuild and check `cv.pdf` before committing it. Publication
+citations in `cv.tex` are maintained explicitly; they are not generated from BibTeX.
+
+Every push to `main` runs the existing GitHub Actions workflow. In repository
+Settings → Pages, the deployment source should be **GitHub Actions**.
+
+Last content update: 19 September 2026. Expected Ph.D. completion: February 2027.
